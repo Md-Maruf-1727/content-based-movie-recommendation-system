@@ -12,3 +12,21 @@ def load_data():
     df = joblib.load("../Models/movie_dataframe.joblib")
     tfidf_matrix = joblib.load("../Models/tfidf_matrix.joblib")
     return df, tfidf_matrix
+
+df, tfidf_matrix = load_data()
+
+user_input = st.text_input("Enter Movie Name")
+top_n = st.slider("Number of recommendations", 5, 20, 10)
+
+if st.button("Recommend"):
+    if user_input.strip() == "":
+        st.warning("Please! enter a movie name.")
+    else:
+        result = get_recommendations(user_input, df, tfidf_matrix, top_n)
+
+        if result.empty:
+            st.error("Movie Not Found!")
+        else:
+            st.success("Recommended:")
+
+            
