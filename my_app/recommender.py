@@ -20,7 +20,7 @@ def get_recommendations(user_input_titles, df, tfidf_matrix, top_n = 10):
     for title in user_input_titles:
         best_match = process.extractOne(title, all_movie_titles)
 
-        if best_match[1] > 60:
+        if best_match[1] > 80:
             matched_movie_name = best_match[0]
             idx = indices[matched_movie_name]
             matched_indices.append(idx)
