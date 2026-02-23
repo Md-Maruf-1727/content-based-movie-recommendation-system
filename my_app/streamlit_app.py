@@ -18,6 +18,7 @@ def load_data():
 
 df, tfidf_matrix, movie_list = load_data()
 
+@st.cache_data
 def get_poster_url(movie_title):
     api_key = "31c6b2a4fab808900e946b36af001a51" 
     search_url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={movie_title}"
