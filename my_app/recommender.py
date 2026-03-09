@@ -2,10 +2,12 @@ import joblib
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from thefuzz import process
+import os
 
-tfidf = joblib.load('../Models/tfidf_vectorizer.joblib')
-tfidf_matrix = joblib.load('../Models/tfidf_matrix.joblib')
-df = joblib.load('../Models/movie_dataframe.joblib')
+baser_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+tfidf = joblib.load(os.path.join(baser_dir, "Models", "tfidf_vectorizer.joblib"))
+tfidf_matrix = joblib.load(os.path.join(baser_dir, "Models", "tfidf_matrix.joblib"))
+df = joblib.load(os.path.join(baser_dir, "Models", "movie_dataframe.joblib"))
 
 
 def get_recommendations(user_input_titles, df, tfidf_matrix, top_n = 10):

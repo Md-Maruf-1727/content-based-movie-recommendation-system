@@ -3,6 +3,7 @@ import joblib
 from recommender import get_recommendations
 from streamlit_searchbox import st_searchbox
 import requests
+import os
 
 st.set_page_config(page_title="Movie Recommender", page_icon="🎬", layout="centered")
 st.title("🎬 Movie Recommender System")
@@ -11,6 +12,7 @@ st.write("Start typing a movie name and pick from suggestions:")
 
 @st.cache_resource
 def load_data():
+    base_dir = os.path.dirname(os)
     df = joblib.load("../Models/movie_dataframe.joblib")
     tfidf_matrix = joblib.load("../Models/tfidf_matrix.joblib")
     movie_list = df['original_title'].sort_values().unique()
