@@ -12,9 +12,9 @@ st.write("Start typing a movie name and pick from suggestions:")
 
 @st.cache_resource
 def load_data():
-    base_dir = os.path.dirname(os)
-    df = joblib.load("../Models/movie_dataframe.joblib")
-    tfidf_matrix = joblib.load("../Models/tfidf_matrix.joblib")
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    df = joblib.load(os.path.join(base_dir, "Models", "movie_dataframe.joblib"))
+    tfidf_matrix = joblib.load(os.path.join(base_dir, "Models", "tfidf_matrix.joblib"))
     movie_list = df['original_title'].sort_values().unique()
     return df, tfidf_matrix, movie_list
 
