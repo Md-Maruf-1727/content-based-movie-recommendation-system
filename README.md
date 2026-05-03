@@ -8,7 +8,8 @@ Includes a fully deployed Streamlit web app with fuzzy search and live movie pos
 
 ## 🚀 Live Demo
 
-<!-- ADD GIF: static/demo.gif here -->
+![Movie Recommender Demo](my_app/static/demo.gif)
+
 
 ---
 
